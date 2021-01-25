@@ -1,10 +1,12 @@
-## 2021-01-22  
-First init  
-PostMan 추가  
-nodemon으로 변동상황 즉각반영으로 바꿈
-mongo key값 숨김
-bcrypt  
-
+# Bolier Plate
+  자세한 Process는 BolierPlate Korean.html에 있음
+  인프런의 노드 리액트 기본 강의를 참고로 만들었음
+  ## 2021-01-22  
+  First init  
+  PostMan 추가  
+  nodemon으로 변동상황 즉각반영으로 바꿈
+  mongo key값 숨김
+  bcrypt  
   ## 2021-01-25
   ### 로그인 기능
   #### 웹 토큰 생성 라이브러리 추가
@@ -19,4 +21,3 @@ bcrypt
 
   ### 로그아웃 기능
   로그아웃 하려는 유저를 데이터베이스에서 찾아서 , 그 유저의 토큰을 지워주면 된다.
-  
