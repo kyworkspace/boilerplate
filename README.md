@@ -35,3 +35,9 @@
   #### npx 장점
    1. Disk space를 낭비하지 않음
    2. 항상 최신버전을 사용할 수 있음
+  ### Concurrently 이용해서 프론트, 백 서버 한번에 켜기
+  여러개의 커맨드를 동시에 작동시킬수 있게 해주는 Tool
+  npm install concurrently --save
+  Root package.JSON에서 아래와 같이 script를 추가하면 됨
+  "concurrently \"npm run backend\" \"npm run start --prefix client"
+  프론트 스타트의 경우 prefix를 붙여서 해당 프로젝트 폴더명을 적어주면 같이 동작함
