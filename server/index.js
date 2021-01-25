@@ -73,7 +73,7 @@ app.post('/api/users/login',(req,res)=>{
 })
 
 //auth 권한 처리
-app.get('/api/user/auth',auth,(req,res)=>{
+app.get('/api/users/auth',auth,(req,res)=>{
   //auth 는 미들웨어
   // 여기까지 통과되면 req.token, req.user 정보 확인가능
 
@@ -92,7 +92,7 @@ app.get('/api/user/auth',auth,(req,res)=>{
 })
 
 
-app.get('/api/user/logout',auth,(req,res)=>{
+app.get('/api/users/logout',auth,(req,res)=>{
   //로그인 된 상태이기 때문에 auth를 가져와 쓸수 있음
   User.findOneAndUpdate(
     {_id : req.user._id}, //아이디로 해당 정보를 찾아서

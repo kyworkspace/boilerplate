@@ -80,12 +80,22 @@
   Redux Store 안에서 State를 관리
   dispatch를 이용해서 Action 관리
 
-  #### redux-thunk
+  ### redux-thunk
   dispatch 한테 어떻게 function을 쓰는 지 알려줌
-  #### redux-promise
+  ### redux-promise
   dispatch 한테 어떻게 promise를 처리해야 하는지 알려줌
 
   결국 redux를 잘 사용하기 위한 라이브러리임
 
-  ##### combineReducers in _reducers
+  ### combineReducers in _reducers
   여러가지 reducer를 묶어서 하나로 합쳐서 컨트롤 하기 위함
+
+  ## REACT COMPONENT
+  ### Class Component
+  1. 더 많은 기능들 사용
+  2. 코드 길어짐, 복잡해짐, 성능이 상대적으로 저하
+  3. 생명주기 함수를 사용가능 함
+  ### functional Component
+  1. 제한된 기능 사용
+  2. 코드 짧음, 간단함, 성능이 상대적으로 좋음
+  3. 생명주기를 사용하기에는 제한적이었으나 HOOK이 나오면서 함수형 컴포넌트에서도 사용가능해짐
