@@ -92,6 +92,19 @@ app.get('/api/user/auth',auth,(req,res)=>{
 })
 
 
+app.get('/api/user/logout',auth,(req,res)=>{
+  //로그인 된 상태이기 때문에 auth를 가져와 쓸수 있음
+  User.findOneAndUpdate(
+    {_id : req.user._id}, //아이디로 해당 정보를 찾아서
+    {token : ""}, //token을 초기화 해주고
+    (err,user)=>{
+      if(err) return res.json({success:false,err});
+      return res.status(200).send({
+        success : true
+      })
+    })
+})
+
 
 
 
