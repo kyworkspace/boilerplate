@@ -56,9 +56,22 @@ userSchema.pre('save',function(next){//몽구스 메서드 'save' 전에 어떤 
             next();
         })
     })
+    }else{
+        next();
     }
 
 }) ; 
+
+userSchema.methods.comparePassword = function(plainPassword,cb){
+    //비밀번호 비교 메서드
+    // plainPassword 123456
+    // $2b$10$4edPWfG.0U7B1o0/lSli3e/N1IFXxws0ngRMckXSChGPr0jDyx5oK
+
+    bcrypt.compare(plainPassword,this.password,function(err,isMatch){ //비크립트 함수. 암호화를 비교해줌
+        if(err) return cb(err); //에러가 있으면 콜백함수에 에러를 담아 넘기고
+        cb(null,isMatch) //에러가 없으면 에러자리에 null 두고 isMatch 값 true로 넘김
+    })
+}
 
 const User = mongoose.model('User',userSchema);
 
