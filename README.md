@@ -7,3 +7,7 @@ bcrypt
 
   ## 2021-01-25
   로그인 기능
+  웹 토큰 생성 라이브러리 추가
+  npm install jsonwebtoken --save
+  쿠키파서 라이브러리 추가
+  npm install cookie-parser --save

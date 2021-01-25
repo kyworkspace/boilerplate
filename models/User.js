@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 //salt를 이용해서 비밀번호 암호화
 const saltRounds = 10;
-const someOtherPlaintextPassword = 'not_bacon';
+const jwt = require('jsonwebtoken');
 
 
 
@@ -44,18 +44,17 @@ userSchema.pre('save',function(next){//몽구스 메서드 'save' 전에 어떤 
 
     //비밀번호를 바꿀때만 암호화 하도록 함
     if(user.isModified('password')){
-     //비밀번호 암호화 시킴.
-    //https://www.npmjs.com/package/bcrypt 참고
-
-    bcrypt.genSalt(saltRounds,function(err,salt){
-        if(err) return next(err); //next는 바로 다음 단계로 넘어가는 메서드. 여기서는 index에서 post하는 단계를 뜻함
-        bcrypt.hash(user.password,salt,function(err,hash){
-            //hash는 암호화된 비밀번호
-            if(err) return next(err);
-            user.password = hash ; //정상적으로 변환되면 비밀번호 변경
-            next();
+        //비밀번호 암호화 시킴.
+        //https://www.npmjs.com/package/bcrypt 참고
+        bcrypt.genSalt(saltRounds,function(err,salt){
+            if(err) return next(err); //next는 바로 다음 단계로 넘어가는 메서드. 여기서는 index에서 post하는 단계를 뜻함
+            bcrypt.hash(user.password,salt,function(err,hash){
+                //hash는 암호화된 비밀번호
+                if(err) return next(err);
+                user.password = hash ; //정상적으로 변환되면 비밀번호 변경
+                next();
+            })
         })
-    })
     }else{
         next();
     }
@@ -70,6 +69,21 @@ userSchema.methods.comparePassword = function(plainPassword,cb){
     bcrypt.compare(plainPassword,this.password,function(err,isMatch){ //비크립트 함수. 암호화를 비교해줌
         if(err) return cb(err); //에러가 있으면 콜백함수에 에러를 담아 넘기고
         cb(null,isMatch) //에러가 없으면 에러자리에 null 두고 isMatch 값 true로 넘김
+    })
+}
+
+userSchema.methods.generateToken = function(cb){
+    var user = this;
+    //jsonwebToken을 이용해서 token 생성
+    var token = jwt.sign(user._id.toHexString(), 'secretToken') //DB에 저장된 키값 , 토큰명
+    // plain Object로 변경하기 위해서는 toHexString()
+    // user._id + 'secretToken' = token
+    // -> 토큰만 있으면 user._id 확인가능
+
+    user.token = token;
+    user.save(function(err,user){
+        if(err) return cb(err);
+        cb(null,user);
     })
 }
 
