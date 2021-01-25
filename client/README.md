@@ -36,3 +36,41 @@
   2. 캐쉬를 이용해 더 빠른 인터넷 이용 제공
   3. 더 나은 보안 제공
   4. 이용 제한된 사이트 접근 가능
+  ## CSS FrameWork 사용할거임
+  1. Material UI
+  2. React Bootstrap
+  3. Semantic UI
+  4. Ant Design (양이 방대함) - 이거 쓸거임(https://ant.design/)
+
+    npm install antd
+
+  5. Materialize
+
+  ## Redux
+  ### 상태 관리 라이브러리
+  #### Props(Properties)
+  1. 컴포넌트단에서 주고 받을때 사용
+  2. 위에서 아래로 내려가는 데이터
+  3. 변하지 않는 데이터(Immutable)
+  4. 탑다운 방식의 데이터 흐름
+
+  #### State
+  1. 같은 컴포넌트 내에서 데이터를 조작 할때 사용 (mutable)
+  2. 컴포넌트 내에서 state가 바뀌면 re-render 됨
+
+  리덕스가 있으면 한개의 store에서 데이터를 주고 받을 수 있음(복잡성이 줄어듬)
+
+  액션->리듀서->스토어->React Component -> 액선-> 리듀서....
+  한 방향으로만 흐르는게 redux 데이터 플로우
+
+  #### Action
+  각 객체에 무슨일이 일어났는지 설명하는 객체 모음(type, payload) type은 무슨일이 일어났는지 사건 명, payload는 대상 객체
+  #### Readucer
+
+    (previousState,action) => nextState
+
+  Action을 통해서 previousState가 nextState로 변했다는 것을 설명하는 것
+  이전 State과 action object를 받은 후에  next state을 return 한다
+  #### store
+  전체적인 어플리케이션의 State를 감싸주는 역할
+  
