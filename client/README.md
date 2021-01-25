@@ -26,7 +26,10 @@
   3. 모든 요소를 컨트롤 할 상황이 된다면 서버에서 클라 정보를 받았을 때 부분 허용하는 것으로 가는 법
   4. Proxy를 사용할수도 있다.
   https://create-react-app.dev/docs/proxying-api-requests-in-development
-  1. 모듈 다운 npm install http-proxy-middleware --save
+  1. 모듈 다운 
+
+    npm install http-proxy-middleware --save
+
   2. src에 setupProxy.js 파일을 만들어서 규칙을 저장함
   #### Proxy server 사용이유
   1. 회사에서 내부 컴퓨터 인터넷 사용 제어
