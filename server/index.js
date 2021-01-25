@@ -1,7 +1,7 @@
 //백엔드 서버의 시작점 
 const express = require('express')
 const app = express()
-const port = 5000
+
 const {User}  = require('./models/User')
 const bodyParser  = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -111,7 +111,7 @@ app.get('/api/hello',(req,res)=>{
 })
 
 
-
+const port = 5000
 
 
 app.listen(port, () => {
