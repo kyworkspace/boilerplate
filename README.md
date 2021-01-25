@@ -26,13 +26,12 @@
   원래는 Babel, Webpack을 설정해주어야 하지만 create-react-app을 이용해서 바로 만들수 있음
   ### npm, npx
   npm : Node Package Manager
-  ==> Registry 같은 저장소 역할, denpendency의 라이브러리를 담고 있음
-  ==> 배포를 할때 빌드를 하는데 "npm run build"를 사용
-  ==> npm에 관한것은 package.json에 보관됨
-  ==> local로 설치할때는 nodemodule에 저장됨(같은 프로젝트 or 패키지안)
-  ===> npm install -g 의 경우 글로벌로 받는 경우는 컴퓨터 안에 /bin 디렉토리에 저장됨
-  ===> 원래는 npm create-react-app 로 사용하지만
-  npx의 경우는 npm registry 에서 create-react-app을 찾아서 다운로드 없이 실행 시켜줌
+  1. Registry 같은 저장소 역할, denpendency의 라이브러리를 담고 있음
+  2. 배포를 할때 빌드를 하는데 "npm run build"를 사용
+  3. npm에 관한것은 package.json에 보관됨
+  4. local로 설치할때는 nodemodule에 저장됨(같은 프로젝트 or 패키지안)
+  5. npm install -g 의 경우 글로벌로 받는 경우는 컴퓨터 안에 /bin 디렉토리에 저장됨
+  6. 원래는 npm create-react-app 로 사용하지만 npx의 경우는 npm registry 에서 create-react-app을 찾아서 다운로드 없이 실행 시켜줌
   #### npx 장점
    1. Disk space를 낭비하지 않음
    2. 항상 최신버전을 사용할 수 있음

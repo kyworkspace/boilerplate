@@ -106,7 +106,9 @@ app.get('/api/user/logout',auth,(req,res)=>{
 })
 
 
-
+app.get('/api/hello',(req,res)=>{
+  res.send("하이염")
+})
 
 
 
