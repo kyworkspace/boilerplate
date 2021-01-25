@@ -73,4 +73,19 @@
   이전 State과 action object를 받은 후에  next state을 return 한다
   #### store
   전체적인 어플리케이션의 State를 감싸주는 역할
-  
+  ## Redux setting
+    
+    npm install redux react-redux redux-promise redux-thunk --save
+
+  Redux Store 안에서 State를 관리
+  dispatch를 이용해서 Action 관리
+
+  #### redux-thunk
+  dispatch 한테 어떻게 function을 쓰는 지 알려줌
+  #### redux-promise
+  dispatch 한테 어떻게 promise를 처리해야 하는지 알려줌
+
+  결국 redux를 잘 사용하기 위한 라이브러리임
+
+  ##### combineReducers in _reducers
+  여러가지 reducer를 묶어서 하나로 합쳐서 컨트롤 하기 위함
