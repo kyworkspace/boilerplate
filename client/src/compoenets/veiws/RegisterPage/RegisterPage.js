@@ -1,11 +1,15 @@
 import React,{useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {loginUser} from '../../../_actions/user_action'
-function LoginPage(props) {
+import {registerUser} from '../../../_actions/user_action'
+
+function RegisterPage(props) {
+
     const dispatch = useDispatch();
 
     const [Email, setEmail] = useState("")
     const [Password, setPassword] = useState("")
+    const [Name, setName] = useState("")
+    const [ConfirmPassword, setConfirmPassword] = useState("");
 
     const onEmailHandler =(event)=>{
             setEmail(event.currentTarget.value);
@@ -13,22 +17,36 @@ function LoginPage(props) {
     const onPasswordHandler = (event) =>{
         setPassword(event.currentTarget.value);
     }
+    const onNameHandler =(event) =>{
+        setName(event.currentTarget.value)
+    }
+    const onConfirmPasswordHandler = (event) => {
+        setConfirmPassword(event.currentTarget.value);
+    }
+
+
     const onSubmitHandler = (event) =>{
         event.preventDefault();
         // 이걸 사용하면 페이지가 리프레쉬 되는 것을 막음.
         // 리프레쉬가 되면 아래 진행될 코드가 실행되지 못하기 때문에 막는거임
+
+        if(Password !== ConfirmPassword){
+            return alert("비밀번호와 비밀번호 확인은 같아야 합니다.")
+        }
+
         let body ={
             email : Email,
-            password : Password
+            password : Password,
+            name : Name
         }
         //액션으로 보냄
-        dispatch(loginUser(body)) 
+        dispatch(registerUser(body)) 
             .then(response=>{
-                if(response.payload.loginSuccess){
-                    props.history.push("/");
-                    //메인 페이지 이동
+                console.log("sign up response" ,response);
+                if(response.payload.success){
+                    props.history.push("/login")
                 }else{
-                    alert("ERROR");
+                    alert("Fail to sign up")
                 }
             })
 
@@ -46,12 +64,20 @@ function LoginPage(props) {
                 </label>
                 <input type="email" value={Email} onChange={onEmailHandler}/>
                 <label>
+                name    
+                </label>
+                <input type="text" value={Name} onChange={onNameHandler}/>
+                <label>
                 password    
                 </label>
                 <input type="password" value={Password} onChange={onPasswordHandler}/>
+                <label>
+                confirm password    
+                </label>
+                <input type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler}/>
                 <br/>
                 <button>
-                    Login
+                    회원 가입
                 </button>
 
             </form>
@@ -59,4 +85,4 @@ function LoginPage(props) {
     )
 }
 
-export default LoginPage
+export default RegisterPage

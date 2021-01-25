@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import LandingPage from './compoenets/veiws/LandingPage/LandingPage';
 import LoginPage from './compoenets/veiws/LoginPage/LoginPage';
-import RegisterPge from './compoenets/veiws/RegisterPage/RegisterPge';
+import RegisterPage from './compoenets/veiws/RegisterPage/RegisterPage';
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage}/>
           <Route exact path="/login" component={LoginPage}/>
-          <Route exact path="/register" component={RegisterPge}/>
+          <Route exact path="/register" component={RegisterPage}/>
         </Switch>
       </div>
     </Router>
