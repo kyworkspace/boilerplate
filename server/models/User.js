@@ -81,7 +81,7 @@ userSchema.methods.generateToken = function(cb){
     // -> 토큰만 있으면 user._id 확인가능
 
     user.token = token;
-    user.save(function(err,user){
+    user.save(function(err,user){ //mongoDB 적용하는 메서드 save
         if(err) return cb(err);
         cb(null,user);
     })
