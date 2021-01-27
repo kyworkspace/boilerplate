@@ -1,5 +1,7 @@
 import React,{useEffect} from 'react'
 import axios from 'axios'
+import {withRouter} from 'react-router-dom'
+
 function LandingPage(props) {
 
     //랜딩페이지에 들어오자마자 실행한다는 뜻
@@ -30,4 +32,4 @@ function LandingPage(props) {
     )
 }
 
-export default LandingPage
+export default withRouter(LandingPage)
